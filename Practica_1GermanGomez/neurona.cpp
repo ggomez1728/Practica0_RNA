@@ -4,6 +4,7 @@ Neurona::Neurona(){
   int i,j;
   ymatriz = Y_VAROR-1;
   xmatriz = X_VAROR;
+  rutaFile = "/home/german/Documentos/Posgrado_Ucla/RNA/practicas/Practica0_RNA/Practica_1GermanGomez/";
   srand(time(NULL));
   for (j=0; j<xmatriz; j++){
     for (i=0; i<xmatriz; i++){
@@ -41,6 +42,34 @@ void Neurona::entrenar(){
        
   }
   
+}
+
+void Neurona::cargarIOS(){
+  archivo.setFileName(rutaFile + "ios.txt");
+  if ( !archivo.open( QIODevice::ReadOnly | QIODevice::Text ) ){
+    cout << "ERROR: No se pudo acceder al archivo deseado"<<endl;
+  }
+  else{
+    cout << "Cargando data de ios.txt"<<endl;
+    manejadorData = new QTextStream(&archivo);
+    int i,j;
+    QString conjuntoData, elementoData;
+    for(j=0; j<=xmatriz; j++){
+      cout<<numsel.toInt();
+      conjuntoData=manejadorData->readLine();
+      for(i=0; i<=ymatriz; i++){               
+          elementoData = conjuntoData.at(i);
+          ios[i][j] = elementoData.toInt();
+          cout << ios[i][j];
+      }
+      cout<<endl;
+    }
+    archivo.close();
+  }
+
+
+
+
 }
 
 double Neurona::sigmoide(double x) {

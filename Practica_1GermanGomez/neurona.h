@@ -1,9 +1,10 @@
 #ifndef NEURONA_H
 #define NEURONA_H
-#define X_VAROR 10
-#define Y_VAROR 29
+#define X_VAROR 6
+#define Y_VAROR 10
 
-#include <QFile>
+#include <QFile>  //lib. cargar de Archivo
+#include <QDir>   //lib. carga directorio
 #include <QTextStream>
 #include <string>
 #include <QString>
@@ -13,6 +14,8 @@
 #include <QDataStream>
 #include <math.h>
 #include <sstream>
+using namespace std;
+
 
 class Neurona
 {
@@ -33,11 +36,19 @@ public:
 
 
   QString numsel;
+
+  //Carga de Archivo
+  QFile archivo;
+  QString rutaFile;
+  QTextStream *manejadorData;
+
   //inicia entrenamiento
   void entrenar();
   //cargar reglas de entrenamiento
   void cargarIOS();
   //devuelve la evaluacion en la funcion sigmoide
+
+private:
   double sigmoide(double x);
 
 

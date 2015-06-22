@@ -1,3 +1,9 @@
+/*
+Practica No 1
+Redes Neuronales
+German Gomez
+//basado en un modelo elaborado por Carlos Delgado
+*/
 #include <QCoreApplication>
 #include "neurona.h"
 using namespace std;
@@ -28,7 +34,7 @@ int main(int argc, char *argv[])
   cin>>key;
   if (key == "1"){
     cout << "Iniciando Entrenamiento" <<endl;
-
+    neurona.cargarIOS();
   }
   else if (key == "2"){
     cout << "Iniciando Ejecución" <<endl;
@@ -39,7 +45,7 @@ int main(int argc, char *argv[])
 
   }
   else {
-
+    cout << "Opcion Incorrecta" <<endl;
   }
 
 

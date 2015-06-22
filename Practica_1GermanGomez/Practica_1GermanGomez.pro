@@ -20,3 +20,6 @@ SOURCES += main.cpp \
 
 HEADERS += \
     neurona.h
+
+OTHER_FILES += \
+    ios.txt
